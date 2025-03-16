@@ -9,8 +9,8 @@ function StorePage() {
   window.location.href = '/store/1';
 }
 
-function ItemPage() {
-  window.location.href = '/item/1';
+function StoragePage() {
+  window.location.href = '/storage/1';
 }
 </script>
 
@@ -25,7 +25,7 @@ function ItemPage() {
                 <store />
                 <p>store</p>
             </div>
-            <div id="nav-button" @click="ItemPage()">
+            <div id="nav-button" @click="StoragePage()">
                 <Archive />
                 <p>Items</p>
             </div>

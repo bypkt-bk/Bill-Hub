@@ -1,6 +1,6 @@
 <script setup>
 import { House, UserRound, Search, ReceiptText, Edit } from 'lucide-vue-next';
-import navigation from './navigation.vue';
+import Navigation from '@/components/navigation/navigation.vue'
 import { ref } from 'vue';
 
 const bills = ref([
@@ -36,7 +36,7 @@ function BillPage(bill_id) {
 
 <template>
     <div id="layout">
-        <navigation />
+        <Navigation />
         <div id="data-section">
             <header>
                 บุญผองวัศดุก่อสร้าง

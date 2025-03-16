@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { House, UserRound, Printer, Plus } from 'lucide-vue-next';
-import { Calendar } from './ui/calendar';
-import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
-import { cn } from '../lib/utils';
+import { Calendar } from '@/components/ui/calendar';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { cn } from '@/lib/utils';
 import { DateFormatter, type DateValue, getLocalTimeZone } from '@internationalized/date';
 import { Calendar as CalendarIcon } from 'lucide-vue-next';
 import { ref, onMounted, watch } from 'vue';
-import navigation from './navigation.vue';
+import Navigation from '@/components/navigation/navigation.vue'
 
 interface Item {
   item_id: number;
@@ -63,7 +63,7 @@ function HomePage() {
 
 <template>
     <div id="layout">
-        <navigation />
+        <Navigation />
         <div id="data-section">
             <header>
                 บุญผองวัศดุก่อสร้าง
