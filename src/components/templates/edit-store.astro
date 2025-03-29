@@ -1,0 +1,36 @@
+---
+import Header from "@/components/organisms/header.vue";
+import EditStores from "../organisms/edit-store.vue";
+import EditStaff from "../organisms/edit-staff.vue";
+---
+
+<Header client:load />
+<div class="edit-page">
+  <h1>Banyaphon’s Store</h1>
+  <div class="edit-form">
+    <EditStores client:load />
+    <EditStaff />
+  </div>
+</div>
+<style scoped>
+  .edit-page {
+    display: flex;
+    padding: 0px 80px 40px 80px;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    align-self: stretch;
+  }
+  h1 {
+    text-align: center;
+    font-family: Righteous;
+    font-size: 48px;
+  }
+  .edit-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 40px;
+  }
+</style>

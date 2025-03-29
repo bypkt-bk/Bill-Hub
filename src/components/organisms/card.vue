@@ -1,6 +1,6 @@
 <template>
   <a class="card" href="/store/1">
-    <Pencil class="edit-icon" />
+    <Pencil class="edit-icon" @click.stop="editStore" />
     <Store class="store-icon" />
     <h3>Rungcharuen</h3>
     <div class="group">
@@ -24,6 +24,10 @@
 
 <script setup>
 import { Store, Crown, Users, Landmark, Pencil } from "lucide-vue-next";
+function editStore(event) {
+  event.preventDefault();
+  window.location.href = "/edit/1";
+}
 </script>
 
 <style scoped>

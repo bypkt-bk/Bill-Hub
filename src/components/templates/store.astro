@@ -1,7 +1,43 @@
 ---
 import Header from "@/components/organisms/header.vue";
 import Navigation from "@/components/organisms/navigation.vue";
+import Tables from "@/components/organisms/store-table.tsx";
 ---
 
 <Header client:load />
-<Navigation client:load />
+<div class="store-cotainer">
+  <Navigation client:load />
+
+  <div class="data-container">
+    <h1>Banyaphon's store</h1>
+    <Tables client:load />
+  </div>
+</div>
+
+<style>
+  .store-cotainer {
+    display: flex;
+    padding: 40px 80px 40px 80px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+    align-self: stretch;
+  }
+  .data-container {
+    display: flex;
+    height: fit-content;
+    min-height: screen;
+    padding: 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1 0 0;
+    border-radius: 20px;
+    border: 1px solid #3c3c3c;
+    background: #242424;
+  }
+  h1 {
+    text-align: start;
+    font-family: Righteous;
+    font-size: 36px;
+  }
+</style>
