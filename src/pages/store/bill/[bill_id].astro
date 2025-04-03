@@ -1,0 +1,16 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import "@/styles/globals.css";
+import Bill from "@/components/templates/bill.astro";
+export function getStaticPaths() {
+  return [
+    { params: { bill_id: "1" } },
+    { params: { bill_id: "2" } },
+    { params: { bill_id: "3" } },
+  ];
+}
+---
+
+<Layout>
+  <Bill />
+</Layout>

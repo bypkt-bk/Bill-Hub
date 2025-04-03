@@ -3,6 +3,76 @@ import Header from "@/components/organisms/header.vue";
 import Card from "@/components/organisms/card.vue";
 import Search from "@/components/atoms/search.vue";
 import CardLock from "@/components/organisms/cardlock.vue";
+
+const stores = [
+  {
+    id: 1,
+    name: "SuperStore",
+    address: "123 Market St, Cityville, Country",
+    owner: [
+      {
+        id: 1001,
+        email: "owner@example.com",
+        name: "John Doe",
+        taxId: "123-456-789",
+        phoneNumber: "555-1234",
+        ownedStores: [],
+        adminStores: [],
+      },
+    ],
+    admin: [
+      {
+        id: 2001,
+        email: "admin1@example.com",
+        name: "Jane Smith",
+        taxId: "987-654-321",
+        phoneNumber: "555-5678",
+        ownedStores: [],
+        adminStores: [],
+      },
+      {
+        id: 2002,
+        email: "admin2@example.com",
+        name: "Bob White",
+        taxId: "123-456-789",
+        phoneNumber: "555-4321",
+        ownedStores: [],
+        adminStores: [],
+      },
+    ],
+    revenue: 5000000,
+    bill: [],
+  },
+  {
+    id: 2,
+    name: "MegaMart",
+    address: "456 Commerce Ave, Cityville, Country",
+    owner: [
+      {
+        id: 1002,
+        email: "owner2@example.com",
+        name: "Alice Cooper",
+        taxId: "123-654-987",
+        phoneNumber: "555-9876",
+        ownedStores: [],
+        adminStores: [],
+      },
+    ],
+    admin: [
+      {
+        id: 2003,
+        email: "admin3@example.com",
+        name: "Tom Jones",
+        taxId: "456-789-123",
+        phoneNumber: "555-5679",
+        ownedStores: [],
+        adminStores: [],
+      },
+    ],
+    revenue: 7000000,
+    bill: [],
+  },
+];
 ---
 
 <Header client:load />
@@ -12,11 +82,11 @@ import CardLock from "@/components/organisms/cardlock.vue";
     <Search />
   </div>
   <div class="store-container">
-    <Card client:load />
-    <Card client:load />
+    {stores.map((store) => <Card client:load store={store} />)}
     <CardLock client:load />
   </div>
 </div>
+
 <style scoped>
   h1 {
     text-align: start;

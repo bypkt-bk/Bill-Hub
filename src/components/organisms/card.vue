@@ -1,29 +1,57 @@
 <template>
-  <a class="card" href="/store/1">
-    <Pencil class="edit-icon" />
-    <Store class="store-icon" />
-    <h3>Rungcharuen</h3>
+  <a class="card" :href="`/store/${store.id}`">
+    <Pencil
+      class="edit-icon z-10"
+      @click.stop="editStore(store.id, $event)"
+      aria-label="Edit store"
+    />
+    <Stores class="store-icon" />
+    <h3>{{ store.name }}</h3>
     <div class="group">
       <Crown class="icon" />
-      <span class="badge">BK</span>
-      <span class="badge">PP</span>
+      <span class="badge" v-for="owner in store.owner" :key="owner.id">{{
+        getInitials(owner.name)
+      }}</span>
     </div>
     <div class="group">
       <Users class="icon" />
-      <span class="badge">AA</span>
-      <span class="badge">BB</span>
-      <span class="badge">CC</span>
-      <span class="badge">+10</span>
+      <span class="badge" v-for="admin in store.admin" :key="admin.id">
+        {{ getInitials(admin.name) }}
+      </span>
     </div>
     <div class="group">
       <Landmark class="icon" />
-      <span class="amount">100,000,000</span>
+      <span class="amount">{{ store.revenue }}</span>
     </div>
   </a>
 </template>
 
-<script setup>
-import { Store, Crown, Users, Landmark, Pencil } from "lucide-vue-next";
+<script lang="ts" setup>
+import {
+  Store as Stores,
+  Crown,
+  Users,
+  Landmark,
+  Pencil,
+} from "lucide-vue-next";
+import { type Store } from "@/lib/shared";
+import { defineProps } from "vue";
+
+// Define the prop for the store
+defineProps<{
+  store: Store;
+}>();
+
+function getInitials(name: string): string {
+  if (!name) return "";
+  const nameParts = name.split(" ");
+  return nameParts.map((part) => part.charAt(0).toUpperCase()).join("");
+}
+
+function editStore(id: number, event: Event) {
+  event.preventDefault();
+  window.location.href = `/edit/store/${id}`;
+}
 </script>
 
 <style scoped>

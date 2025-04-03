@@ -1,7 +1,253 @@
 ---
-import Header from "@/components/organisms/header.vue";
 import Navigation from "@/components/organisms/navigation.vue";
+import DataTable from "@/components/organisms/store-table.tsx";
+
+const store = {
+  id: 1,
+  name: "SuperStore",
+  address: "123 Market St, Cityville, Country",
+  owner: [
+    {
+      id: 1001,
+      email: "owner@example.com",
+      name: "John Doe",
+      taxId: "123-456-789",
+      phoneNumber: "555-1234",
+      ownedStores: [],
+      adminStores: [],
+    },
+  ],
+  admin: [
+    {
+      id: 2001,
+      email: "admin1@example.com",
+      name: "Jane Smith",
+      taxId: "987-654-321",
+      phoneNumber: "555-5678",
+      ownedStores: [],
+      adminStores: [],
+    },
+    {
+      id: 2002,
+      email: "admin2@example.com",
+      name: "Bob White",
+      taxId: "123-456-789",
+      phoneNumber: "555-4321",
+      ownedStores: [],
+      adminStores: [],
+    },
+  ],
+  revenue: 5000000,
+  bill: [
+    {
+      id: 1,
+      total: 53000,
+      orderDate: "2025-03-05",
+      shippingOn: "2025-03-08",
+      status: "paid",
+      customer: {
+        id: 1,
+        name: "Nicha P.",
+        address: "Pattaya, Thailand",
+      },
+      products: [
+        { productId: 205, name: "Smartwatch", price: 8000, quantity: 1 },
+        { productId: 314, name: "Smartphone", price: 15000, quantity: 3 },
+      ],
+      storeId: 1,
+    },
+    {
+      id: 2,
+      total: 87000,
+      orderDate: "2025-03-30",
+      shippingOn: "2025-03-17",
+      status: "paid",
+      customer: {
+        id: 2,
+        name: "Rung A.",
+        address: "Khon Kaen, Thailand",
+      },
+      products: [
+        { productId: 131, name: "Smartphone", price: 15000, quantity: 4 },
+        { productId: 499, name: "Headphones", price: 3000, quantity: 1 },
+        { productId: 105, name: "Smartwatch", price: 8000, quantity: 3 },
+      ],
+      storeId: 1,
+    },
+    {
+      id: 3,
+      total: 108000,
+      orderDate: "2025-03-21",
+      shippingOn: "2025-03-17",
+      status: "unpaid",
+      customer: {
+        id: 3,
+        name: "Rung A.",
+        address: "Khon Kaen, Thailand",
+      },
+      products: [
+        { productId: 437, name: "Headphones", price: 3000, quantity: 2 },
+        { productId: 117, name: "Headphones", price: 3000, quantity: 4 },
+        { productId: 143, name: "Laptop", price: 30000, quantity: 3 },
+      ],
+      storeId: 1,
+    },
+    {
+      id: 4,
+      total: 9000,
+      orderDate: "2025-03-17",
+      shippingOn: "2025-03-24",
+      status: "paid",
+      customer: {
+        id: 4,
+        name: "Rung A.",
+        address: "Khon Kaen, Thailand",
+      },
+      products: [
+        { productId: 380, name: "Headphones", price: 3000, quantity: 3 },
+      ],
+      storeId: 1,
+    },
+    {
+      id: 5,
+      total: 96000,
+      orderDate: "2025-03-06",
+      shippingOn: "2025-03-07",
+      status: "unpaid",
+      customer: {
+        id: 5,
+        name: "Suda T.",
+        address: "Chiang Mai, Thailand",
+      },
+      products: [
+        { productId: 662, name: "Smartphone", price: 15000, quantity: 4 },
+        { productId: 914, name: "Tablet", price: 12000, quantity: 3 },
+      ],
+      storeId: 1,
+    },
+    {
+      id: 6,
+      total: 36000,
+      orderDate: "2025-03-19",
+      shippingOn: "2025-03-17",
+      status: "unpaid",
+      customer: {
+        id: 6,
+        name: "Preecha M.",
+        address: "Phuket, Thailand",
+      },
+      products: [
+        { productId: 727, name: "Smartwatch", price: 8000, quantity: 1 },
+        { productId: 253, name: "Smartwatch", price: 8000, quantity: 2 },
+        { productId: 383, name: "Headphones", price: 3000, quantity: 4 },
+      ],
+      storeId: 1,
+    },
+    {
+      id: 7,
+      total: 57000,
+      orderDate: "2025-03-17",
+      shippingOn: "2025-03-17",
+      status: "paid",
+      customer: {
+        id: 7,
+        name: "Rung A.",
+        address: "Khon Kaen, Thailand",
+      },
+      products: [
+        { productId: 775, name: "Headphones", price: 3000, quantity: 4 },
+        { productId: 696, name: "Smartphone", price: 15000, quantity: 3 },
+      ],
+      storeId: 1,
+    },
+    {
+      id: 8,
+      total: 117000,
+      orderDate: "2025-03-11",
+      shippingOn: "2025-03-17",
+      status: "paid",
+      customer: {
+        id: 8,
+        name: "Anan K.",
+        address: "Bangkok, Thailand",
+      },
+      products: [
+        { productId: 640, name: "Smartphone", price: 15000, quantity: 3 },
+        { productId: 208, name: "Laptop", price: 30000, quantity: 2 },
+        { productId: 150, name: "Headphones", price: 3000, quantity: 4 },
+      ],
+      storeId: 1,
+    },
+    {
+      id: 9,
+      total: 96000,
+      orderDate: "2025-03-30",
+      shippingOn: "2025-03-17",
+      status: "paid",
+      customer: {
+        id: 9,
+        name: "Rung A.",
+        address: "Khon Kaen, Thailand",
+      },
+      products: [
+        { productId: 593, name: "Tablet", price: 12000, quantity: 3 },
+        { productId: 347, name: "Laptop", price: 30000, quantity: 2 },
+      ],
+      storeId: 1,
+    },
+    {
+      id: 10,
+      total: 9000,
+      orderDate: "2025-03-15",
+      shippingOn: "2025-03-20",
+      status: "paid",
+      customer: {
+        id: 10,
+        name: "Rung A.",
+        address: "Khon Kaen, Thailand",
+      },
+      products: [
+        { productId: 494, name: "Headphones", price: 3000, quantity: 3 },
+      ],
+      storeId: 1,
+    },
+  ],
+};
 ---
 
-<Header client:load />
-<Navigation client:load />
+<div class="store-cotainer">
+  <Navigation client:load />
+  <div class="data-container">
+    <h1>{store.name}</h1>
+    <DataTable client:load bill={store.bill} />
+  </div>
+</div>
+
+<style>
+  .store-cotainer {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px 80px 40px 80px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+    align-self: stretch;
+  }
+  .data-container {
+    display: flex;
+    height: fit-content;
+    min-height: screen;
+    padding: 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1 0 0;
+    border-radius: 20px;
+    border: 1px solid #3c3c3c;
+    background: #242424;
+  }
+  h1 {
+    text-align: start;
+    font-family: Righteous;
+    font-size: 36px;
+  }
+</style>

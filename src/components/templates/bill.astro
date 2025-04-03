@@ -1,0 +1,94 @@
+---
+import Navigation from "@/components/organisms/navigation.vue";
+import BillData from "@/components/organisms/bill-table.tsx";
+import SelectTable from "@/components/organisms/select-item-table.tsx";
+import { Status } from "@/lib/shared";
+
+const bill = {
+  id: 1,
+  total: 53000,
+  orderDate: "2025-03-05",
+  shippingOn: "2025-03-08",
+  status: Status.paid,
+  customer: {
+    id: 1,
+    name: "Nicha P.",
+    address: "Pattaya, Thailand",
+  },
+  product: [
+    {
+      billId: 1,
+      product: { id: 205, name: "Smartwatch", price: 8000 },
+      quantity: 1,
+    },
+    {
+      billId: 1,
+      product: { id: 314, name: "Smartphone", price: 15000 },
+      quantity: 3,
+    },
+    {
+      billId: 1,
+      product: { id: 1, name: "Bear", price: 8000 },
+      quantity: 6,
+    },
+    {
+      billId: 1,
+      product: { id: 2, name: "Guitar", price: 15000 },
+      quantity: 9,
+    },
+  ],
+  storeId: 1,
+};
+---
+
+<div class="store-cotainer">
+  <Navigation client:load />
+  <div class="data-container">
+    <BillData client:load bill={bill} />
+  </div>
+  <div class="item-container">
+    <SelectTable client:load />
+  </div>
+</div>
+
+<style>
+  .store-cotainer {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 40px 80px 40px 80px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+    align-self: stretch;
+  }
+  .data-container {
+    display: flex;
+    height: 90vh;
+    padding: 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1 0 0;
+    border-radius: 20px;
+    border: 1px solid #3c3c3c;
+    background: #242424;
+  }
+  .item-container {
+    display: flex;
+    height: 90vh;
+    max-width: 400px;
+    padding: 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1 0 0;
+    border-radius: 20px;
+    border: 1px solid #3c3c3c;
+    background: #242424;
+    /* position: sticky;
+    top: 40px; */
+  }
+  h1 {
+    text-align: start;
+    font-family: Righteous;
+    font-size: 36px;
+  }
+</style>

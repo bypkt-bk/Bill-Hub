@@ -1,0 +1,19 @@
+---
+import Header from "@/components/organisms/header.vue";
+import EditAccounts from "../organisms/edit-account.vue";
+---
+
+<Header client:load />
+<div class="edit-page">
+  <EditAccounts client:load />
+</div>
+<style scoped>
+  .edit-page {
+    display: flex;
+    padding: 40px 80px 40px 80px;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    align-self: stretch;
+  }
+</style>

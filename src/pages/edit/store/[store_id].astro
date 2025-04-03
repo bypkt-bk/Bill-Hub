@@ -1,7 +1,7 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro";
 import "@/styles/globals.css";
-import Store from "@/components/templates/store.astro";
+import EditStores from "@/components/templates/edit-store.astro";
 export function getStaticPaths() {
   return [
     { params: { store_id: "1" } },
@@ -12,5 +12,5 @@ export function getStaticPaths() {
 ---
 
 <Layout>
-  <Store />
+  <EditStores />
 </Layout>
